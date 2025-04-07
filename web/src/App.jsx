@@ -1,5 +1,6 @@
 import "./App.css";
-import { Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
 
 // celebrity look Alike
 // emotion detection
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Home/>} />
         <Route path="/home" element={<div>HOOOME</div>} />
         <Route path="/recognize" element={<div>REcogniiiez</div>} />
         <Route path="/about" element={<div>ABOOOOUTTT</div>} />
