@@ -8,6 +8,7 @@ import {
   Github,
   Mail,
 } from "lucide-react";
+import Header from "../components/Header";
 
 // Placeholder data for team members (replace with actual data and image paths)
 const teamMembers = [
@@ -56,8 +57,9 @@ const SocialLink = ({ href, icon: Icon, name }) => (
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-emerald-700 to-black text-white px-4 sm:px-6 lg:px-8 py-12">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-emerald-700 to-black text-white px-4 sm:px-6 lg:px-8">
+      <Header />
+      <div className="max-w-4xl mx-auto pt-12 pb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-emerald-100">
           About CelebClone
         </h1>
@@ -152,12 +154,12 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Team Spotlight Section */}
+        {/* Team Spotlight Section - Reduced gap */}
         <section className="py-12">
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-emerald-400 to-lime-400 text-transparent bg-clip-text">
             Team Spotlight
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 justify-items-center justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center justify-center">
             {teamMembers.slice(0, 3).map((member, index) => (
               <div
                 key={index}
@@ -180,7 +182,7 @@ const AboutUs = () => {
                 <span className="inline-block mt-2 mb-3 px-4 py-1 text-sm font-medium text-emerald-900 bg-gradient-to-r from-lime-300 to-emerald-400 rounded-full">
                   {member.role}
                 </span>
-                <div className="flex space-x-4 mt-2">
+                <div className="flex space-x-3 mt-2">
                   <SocialLink
                     href={member.linkedin}
                     icon={Linkedin}
