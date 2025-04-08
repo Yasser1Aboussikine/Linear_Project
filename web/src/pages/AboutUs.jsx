@@ -154,12 +154,12 @@ const AboutUs = () => {
           </div>
         </section>
 
-        {/* Team Spotlight Section */}
+        {/* Team Spotlight Section - Reduced gap */}
         <section className="py-12">
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-emerald-400 to-lime-400 text-transparent bg-clip-text">
             Team Spotlight
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 justify-items-center justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center justify-center">
             {teamMembers.slice(0, 3).map((member, index) => (
               <div
                 key={index}
@@ -182,7 +182,7 @@ const AboutUs = () => {
                 <span className="inline-block mt-2 mb-3 px-4 py-1 text-sm font-medium text-emerald-900 bg-gradient-to-r from-lime-300 to-emerald-400 rounded-full">
                   {member.role}
                 </span>
-                <div className="flex space-x-4 mt-2">
+                <div className="flex space-x-3 mt-2">
                   <SocialLink
                     href={member.linkedin}
                     icon={Linkedin}
