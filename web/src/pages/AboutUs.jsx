@@ -8,6 +8,7 @@ import {
   Github,
   Mail,
 } from "lucide-react";
+import Header from "../components/Header";
 
 // Placeholder data for team members (replace with actual data and image paths)
 const teamMembers = [
@@ -56,8 +57,9 @@ const SocialLink = ({ href, icon: Icon, name }) => (
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-emerald-700 to-black text-white px-4 sm:px-6 lg:px-8 py-12">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-b from-emerald-700 to-black text-white px-4 sm:px-6 lg:px-8">
+      <Header />
+      <div className="max-w-4xl mx-auto pt-12 pb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-emerald-100">
           About CelebClone
         </h1>

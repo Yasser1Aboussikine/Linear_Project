@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Camera, Upload, Search, Award, Users, Shield } from "lucide-react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import Face from "../assets/hero-section-face.jpg";
 import BackgroundEffects from "../components/BackgroundEffects";
 import ContactUs from "../components/ContactUs";
+import Header from "../components/Header";
 
-const Counter = ({ end, duration = 2000 }) => {
+const Counter = ({ end, duration = 5000 }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     let start = 0;
-    const increment = end / (duration / 9); // 60fps
+    const increment = end / (duration / 9);
 
     const timer = setInterval(() => {
       start += increment;
@@ -46,38 +46,9 @@ const ScanLine = () => {
 };
 
 const Home = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-700 to-black text-white pl-10 pr-10 overflow-y-auto">
-      {/* Navigation */}
-      <nav className="flex items-center justify-between p-6">
-        <div className="flex items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-110">
-          <Camera className="h-8 w-8 transition-all duration-300 hover:text-emerald-300" />
-          <span className="text-2xl font-bold transition-all duration-300 hover:text-emerald-300">
-            CelebClone
-          </span>
-        </div>
-
-        <div className="hidden md:flex space-x-6">
-          <button className="hover:text-emerald-300 transition-all duration-300 cursor-pointer hover:scale-110">
-            Product
-          </button>
-          <button className="hover:text-emerald-300 transition-all duration-300 cursor-pointer hover:scale-110">
-            Technology
-          </button>
-          <button
-            onClick={() => navigate("/about")}
-            className="hover:text-emerald-300 transition-all duration-300 cursor-pointer hover:scale-110"
-          >
-            About us
-          </button>
-        </div>
-
-        <button className="bg-white text-emerald-900 px-4 py-2 rounded-full font-medium transition-all duration-300 hover:bg-emerald-400 hover:scale-110 hover:shadow-lg hover:shadow-emerald-900/20">
-          Get Started
-        </button>
-      </nav>
+      <Header />
 
       {/* Hero Section */}
       <div className="container mx-auto px-6 py-12 grid md:grid-cols-2 gap-12 items-center relative">
@@ -110,7 +81,7 @@ const Home = () => {
             <ScanLine />
             <motion.div className="relative">
               <motion.div
-                className="w-100 h-64 md:w-120 md:h-120 mx-auto bg-emerald-700/50 rounded-lg border-2 border-emerald-600 flex items-center justify-center overflow-hidden"
+                className="w-full max-w-md h-auto md:max-w-lg mx-auto bg-emerald-700/30 rounded-lg border-2 border-emerald-600 flex items-center justify-center overflow-hidden"
                 animate={{
                   y: [0, -10, 0],
                 }}
@@ -143,15 +114,15 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Stats Section */}
-      <div className="container mx-auto px-6 py-12 grid grid-cols-3 gap-6 text-center">
-        <div>
+      {/* Stats Section - Updated grid classes for responsiveness */}
+      <div className="container mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 text-center">
+        <div className="mb-6 md:mb-0">
           <p className="text-4xl font-bold">
             <Counter end={10000000} />+
           </p>
           <p className="text-emerald-300">users matched</p>
         </div>
-        <div>
+        <div className="mb-6 md:mb-0">
           <p className="text-4xl font-bold">
             <Counter end={100} />%
           </p>
