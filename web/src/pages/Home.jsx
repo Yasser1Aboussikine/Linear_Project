@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Camera, Upload, Search, Award, Users, Shield } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Face from "../assets/hero-section-face.jpg";
 import BackgroundEffects from "../components/BackgroundEffects";
 import ContactUs from "../components/ContactUs";
@@ -45,6 +46,8 @@ const ScanLine = () => {
 };
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-700 to-black text-white pl-10 pr-10 overflow-y-auto">
       {/* Navigation */}
@@ -63,7 +66,10 @@ const Home = () => {
           <button className="hover:text-emerald-300 transition-all duration-300 cursor-pointer hover:scale-110">
             Technology
           </button>
-          <button className="hover:text-emerald-300 transition-all duration-300 cursor-pointer hover:scale-110">
+          <button
+            onClick={() => navigate("/about")}
+            className="hover:text-emerald-300 transition-all duration-300 cursor-pointer hover:scale-110"
+          >
             About us
           </button>
         </div>
