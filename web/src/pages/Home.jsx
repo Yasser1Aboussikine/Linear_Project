@@ -3,6 +3,7 @@ import { Camera, Upload, Search, Award, Users, Shield } from "lucide-react";
 import { motion } from "framer-motion";
 import Face from "../assets/hero-section-face.jpg";
 import BackgroundEffects from "../components/BackgroundEffects";
+import ContactUs from "../components/ContactUs";
 
 const Counter = ({ end, duration = 2000 }) => {
   const [count, setCount] = useState(0);
@@ -45,7 +46,7 @@ const ScanLine = () => {
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-emerald-700 to-black text-white pl-10 pr-10">
+    <div className="min-h-screen bg-gradient-to-b from-emerald-700 to-black text-white pl-10 pr-10 overflow-y-auto">
       {/* Navigation */}
       <nav className="flex items-center justify-between p-6">
         <div className="flex items-center gap-2 cursor-pointer transition-all duration-300 hover:scale-110">
@@ -212,6 +213,9 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      {/* Render the Contact Us Section */}
+      <ContactUs />
 
       {/* Footer */}
       <footer className="container mx-auto px-6 py-8">
