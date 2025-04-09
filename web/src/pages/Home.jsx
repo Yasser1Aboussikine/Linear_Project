@@ -114,7 +114,6 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Stats Section - Updated grid classes for responsiveness */}
       <div className="container mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 text-center">
         <div className="mb-6 md:mb-0">
           <p className="text-4xl font-bold">
