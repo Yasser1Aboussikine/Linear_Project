@@ -155,7 +155,7 @@ const AboutUs = () => {
         </section>
 
         {/* Team Spotlight Section - Reduced gap */}
-        <section className="py-12">
+        {/*<section className="py-12">
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-emerald-400 to-lime-400 text-transparent bg-clip-text">
             Team Spotlight
           </h2>
@@ -198,7 +198,7 @@ const AboutUs = () => {
               </div>
             ))}
           </div>
-        </section>
+        </section>*/}
       </div>
     </div>
   );
