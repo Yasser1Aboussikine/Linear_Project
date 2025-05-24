@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Camera, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+const PDF_URL = "../public/FINAL_report_Yasser_Ikram_Smaiin (1).pdf";
+
 const Header = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,6 +17,10 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const handleOpenPdf = () => {
+    window.open(PDF_URL, "_blank");
+  };
+
   return (
     <nav className="relative flex items-center justify-between p-6 text-white">
       {/* Logo */}
@@ -24,17 +30,17 @@ const Header = () => {
       >
         <Camera className="h-8 w-8 text-white group-hover:text-emerald-300 group-hover:rotate-12 transition-all duration-300" />
         <span className="text-2xl font-bold text-white group-hover:text-emerald-300 transition-all duration-300">
-          CelebClone
+          PCA Image Classifier
         </span>
       </div>
 
       {/* Desktop Navigation Links */}
-      <div className="hidden md:flex space-x-6">
-        <button className="text-white hover:text-emerald-300 transition-all duration-300 cursor-pointer hover:scale-105 hover:border-b-2 hover:border-emerald-300 pb-1">
-          Product
-        </button>
-        <button className="text-white hover:text-emerald-300 transition-all duration-300 cursor-pointer hover:scale-105 hover:border-b-2 hover:border-emerald-300 pb-1">
-          Technology
+      <div className="hidden md:flex items-center justify-center flex-1 space-x-12">
+        <button
+          onClick={() => handleNavClick("/code")}
+          className="text-white hover:text-emerald-300 transition-all duration-300 cursor-pointer hover:scale-105 hover:border-b-2 hover:border-emerald-300 pb-1"
+        >
+          Code
         </button>
         <button
           onClick={() => handleNavClick("/about")}
@@ -42,12 +48,11 @@ const Header = () => {
         >
           About us
         </button>
-      </div>
-
-      {/* Get Started Button (visible on desktop) */}
-      <div className="hidden md:block z-20">
-        <button className="bg-white text-emerald-900 px-4 py-2 rounded-full font-medium transition-all duration-300 hover:bg-emerald-400 hover:scale-105 hover:shadow-lg hover:shadow-emerald-900/20">
-          Get Started
+        <button
+          onClick={() => handleOpenPdf()}
+          className="text-white hover:text-emerald-300 transition-all duration-300 cursor-pointer hover:scale-105 hover:border-b-2 hover:border-emerald-300 pb-1"
+        >
+          Report
         </button>
       </div>
 
@@ -63,16 +68,10 @@ const Header = () => {
         <div className="absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-emerald-800 to-black pt-24 px-6 flex flex-col items-center space-y-6 z-10 md:hidden">
           {/* Mobile Navigation Links */}
           <button
-            onClick={() => alert("Navigate to Product")}
+            onClick={() => handleNavClick("/code")}
             className="text-xl hover:text-emerald-300 transition-colors"
           >
-            Product
-          </button>
-          <button
-            onClick={() => alert("Navigate to Technology")}
-            className="text-xl hover:text-emerald-300 transition-colors"
-          >
-            Technology
+            Code
           </button>
           <button
             onClick={() => handleNavClick("/about")}
@@ -80,10 +79,11 @@ const Header = () => {
           >
             About us
           </button>
-
-          {/* Get Started Button (visible in mobile menu) */}
-          <button className="mt-8 bg-white text-emerald-900 px-6 py-3 rounded-full font-medium transition-all duration-300 hover:bg-emerald-400 hover:scale-105">
-            Get Started
+          <button
+            onClick={() => window.open("/report.pdf", "_blank")}
+            className="text-xl hover:text-emerald-300 transition-colors"
+          >
+            Get Report
           </button>
         </div>
       )}

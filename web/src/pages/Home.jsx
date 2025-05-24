@@ -1,13 +1,27 @@
 import React, { useState, useEffect } from "react";
-import { Camera, Upload, Search, Award, Users, Shield } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import {
+  Camera,
+  Upload,
+  Search,
+  Award,
+  Users,
+  Shield,
+  Cpu,
+  Code,
+} from "lucide-react";
 import { motion } from "framer-motion";
 import Face from "../assets/hero-section-face.jpg";
 import BackgroundEffects from "../components/BackgroundEffects";
 import ContactUs from "../components/ContactUs";
 import Header from "../components/Header";
 
-const Counter = ({ end, duration = 5000 }) => {
+
+const Home = () => {
+  const navigate = useNavigate();
+  const Counter = ({ end, duration = 5000 }) => {
   const [count, setCount] = useState(0);
+  
 
   useEffect(() => {
     let start = 0;
@@ -29,6 +43,11 @@ const Counter = ({ end, duration = 5000 }) => {
   return <span>{count.toLocaleString()}</span>;
 };
 
+const handleNavClick = (path) => {
+  navigate(path);
+  setIsMenuOpen(false);
+};
+
 const ScanLine = () => {
   return (
     <motion.div
@@ -45,7 +64,6 @@ const ScanLine = () => {
   );
 };
 
-const Home = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-700 to-black text-white pl-10 pr-10 overflow-y-auto">
       <Header />
@@ -58,19 +76,24 @@ const Home = () => {
         {/* Main Content */}
         <div className="relative" style={{ zIndex: 1 }}>
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Find your <br />
-            celebrity <br />
-            clone
+            PCA-Based <br />
+            Image <br />
+            Classification
           </h1>
           <p className="mt-6 text-lg text-emerald-100">
-            Advanced AI technology that matches your face with your celebrity
-            doppelgänger. Experience 99.7% matching accuracy with our
-            state-of-the-art facial recognition system.
+            Advanced Principal Component Analysis (PCA) technology that
+            transforms high-dimensional image data into lower-dimensional
+            representations while preserving essential features. Experience
+            92.4% classification accuracy with our state-of-the-art
+            dimensionality reduction system.
           </p>
           <div className="mt-10">
-            <button className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 transition-colors py-3 px-6 rounded-full font-medium cursor-pointer">
-              <Upload size={20} />
-              Upload Your Photo
+            <button
+              onClick={() => handleNavClick("/code")}
+              className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 transition-colors py-3 px-6 rounded-full font-medium cursor-pointer"
+            >
+              <Code size={20} />
+              Explore Code
             </button>
           </div>
         </div>
@@ -105,10 +128,10 @@ const Home = () => {
           {/* Stats box */}
           <div className="absolute -bottom-6 right-4 bg-black/80 backdrop-blur p-4 rounded-lg">
             <p className="font-bold text-2xl">
-              <Counter end={99.7} duration={3000} />% accuracy
+              <Counter end={92.4} duration={3000} />% accuracy
             </p>
             <p className="text-sm text-emerald-300">
-              Trained on 1M+ celebrity faces
+              Trained on VGGFace2 dataset
             </p>
           </div>
         </div>
@@ -117,53 +140,55 @@ const Home = () => {
       <div className="container mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 text-center">
         <div className="mb-6 md:mb-0">
           <p className="text-4xl font-bold">
-            <Counter end={10000000} />+
+            <Counter end={2000} />+
           </p>
-          <p className="text-emerald-300">users matched</p>
+          <p className="text-emerald-300">dimensions reduced</p>
         </div>
         <div className="mb-6 md:mb-0">
           <p className="text-4xl font-bold">
-            <Counter end={100} />%
+            <Counter end={400} />
           </p>
-          <p className="text-emerald-300">privacy protected</p>
+          <p className="text-emerald-300">principal components</p>
         </div>
         <div>
           <p className="text-4xl font-bold">
-            <Counter end={5000} />+
+            <Counter end={10} />
           </p>
-          <p className="text-emerald-300">celebrities in database</p>
+          <p className="text-emerald-300">classes supported</p>
         </div>
       </div>
 
       {/* Features */}
       <div className="container mx-auto px-6 py-12">
-        <h2 className="text-3xl font-bold text-center mb-12">How It Works</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Project Overview
+        </h2>
 
         <div className="grid md:grid-cols-3 gap-8">
           <div className="bg-emerald-800/50 p-6 rounded-xl cursor-pointer transition-all duration-300 hover:bg-emerald-800/70 hover:scale-105 hover:shadow-xl hover:shadow-emerald-900/20 hover:z-10">
-            <Upload className="h-12 w-12 text-emerald-300 mb-4" />
-            <h3 className="text-xl font-bold mb-2">Upload Your Photo</h3>
+            <Search className="h-12 w-12 text-emerald-300 mb-4" />
+            <h3 className="text-xl font-bold mb-2">Feature Extraction</h3>
             <p className="text-emerald-100">
-              Take a clear selfie or upload your best photo. Our system works
-              with any angle.
+              Using ResNet50 to extract high-level features from images,
+              transforming them into a 2000+ dimensional feature space.
             </p>
           </div>
 
           <div className="bg-emerald-800/50 p-6 rounded-xl cursor-pointer transition-all duration-300 hover:bg-emerald-800/70 hover:scale-105 hover:shadow-xl hover:shadow-emerald-900/20 hover:z-10">
-            <Search className="h-12 w-12 text-emerald-300 mb-4" />
-            <h3 className="text-xl font-bold mb-2">AI Analysis</h3>
+            <Cpu className="h-12 w-12 text-emerald-300 mb-4" />
+            <h3 className="text-xl font-bold mb-2">PCA Analysis</h3>
             <p className="text-emerald-100">
-              Our advanced algorithm maps 128 facial points to find your perfect
-              celebrity match.
+              Our advanced PCA algorithm reduces dimensionality while preserving
+              the most important features for classification.
             </p>
           </div>
 
           <div className="bg-emerald-800/50 p-6 rounded-xl cursor-pointer transition-all duration-300 hover:bg-emerald-800/70 hover:scale-105 hover:shadow-xl hover:shadow-emerald-900/20 hover:z-10">
             <Award className="h-12 w-12 text-emerald-300 mb-4" />
-            <h3 className="text-xl font-bold mb-2">Get Your Results</h3>
+            <h3 className="text-xl font-bold mb-2">Classification</h3>
             <p className="text-emerald-100">
-              See your top celebrity matches with similarity scores and share
-              with friends.
+              Logistic regression classifier achieves 92.4% accuracy on the
+              VGGFace2 dataset with 10 distinct identities.
             </p>
           </div>
         </div>
@@ -175,15 +200,18 @@ const Home = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-3">
               <Shield className="text-emerald-300" />
-              <span>100% secure data handling</span>
+              <span>ResNet50 Feature Extraction</span>
             </div>
             <div className="flex items-center gap-3">
               <Users className="text-emerald-300" />
-              <span>Used by 10M+ people worldwide</span>
+              <span>400 Principal Components</span>
             </div>
             <div>
-              <button className="bg-emerald-500 hover:bg-emerald-400 transition-colors py-3 px-6 rounded-full font-medium">
-                Try Now - It's Free!
+              <button
+                onClick={() => handleNavClick("/code")}
+                className="bg-emerald-500 hover:bg-emerald-400 transition-colors py-3 px-6 rounded-full font-medium"
+              >
+                View Code
               </button>
             </div>
           </div>
@@ -198,7 +226,7 @@ const Home = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
             <Camera className="h-6 w-6" />
-            <span className="text-xl font-bold">CelebClone</span>
+            <span className="text-xl font-bold">PCA Image Classifier</span>
           </div>
 
           <div className="text-sm text-emerald-300">
