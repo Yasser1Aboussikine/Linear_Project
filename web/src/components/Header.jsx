@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Camera, Menu, X } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
+
 const PDF_URL = "/FINAL_report_Yasser_Ikram_Smaiin (1).pdf";
 
 const Header = () => {
