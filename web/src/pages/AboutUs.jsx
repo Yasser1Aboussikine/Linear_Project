@@ -61,7 +61,7 @@ const AboutUs = () => {
       <Header />
       <div className="max-w-4xl mx-auto pt-12 pb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-12 text-emerald-100">
-          About CelebClone
+          About PCA Image Classification
         </h1>
 
         {/* Mission Section */}
@@ -69,12 +69,10 @@ const AboutUs = () => {
           <Target className="h-16 w-16 text-emerald-300 mx-auto mb-4" />
           <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
           <p className="text-lg text-emerald-100 leading-relaxed">
-            To bring a bit of fun and magic into people's lives by connecting
-            them with their celebrity look-alikes using cutting-edge AI
-            technology. We believe everyone deserves a moment in the spotlight,
-            even if it's just discovering which star shares their features!
-            <br /> <br />
-            <strong>JK it's just a Linear Algebra Project</strong>
+            To enhance image classification efficiency by transforming
+            high-dimensional image data into lower-dimensional representations
+            using Principal Component Analysis (PCA). Our goal is to achieve
+            accurate recognition while minimizing computational complexity.
           </p>
         </section>
 
@@ -82,41 +80,40 @@ const AboutUs = () => {
         <section className="mb-16 bg-emerald-900/30 p-8 rounded-lg shadow-lg">
           <Cpu className="h-16 w-16 text-emerald-300 mx-auto mb-6" />
           <h2 className="text-3xl font-semibold text-center mb-6">
-            The Technology Behind the Magic
+            The Technology Behind Our Solution
           </h2>
           <p className="text-lg text-emerald-100 leading-relaxed mb-4">
-            CelebClone utilizes a sophisticated facial recognition algorithm
-            trained on a massive dataset of over 5,000 celebrity images and
-            millions of user-submitted photos. Our system analyzes 128 key
-            facial landmarks to ensure high accuracy.
+            Our system utilizes Principal Component Analysis (PCA) to reduce the
+            dimensionality of high-level feature vectors extracted from
+            ResNet50. The implementation achieves 92.4% classification accuracy
+            while significantly reducing computational requirements.
           </p>
           <ul className="list-disc list-inside text-emerald-100 space-y-2">
             <li>
               <span className="font-semibold text-emerald-300">
-                Deep Learning Models:
+                ResNet50 Feature Extraction:
               </span>{" "}
-              Powering the core facial feature extraction.
+              Extracting high-level features from images.
             </li>
             <li>
               <span className="font-semibold text-emerald-300">
-                Vector Similarity Search:
+                PCA Dimensionality Reduction:
               </span>{" "}
-              Efficiently comparing facial embeddings to find the closest
-              matches.
+              Transforming 2000+ dimensional features into 400 principal
+              components.
             </li>
             <li>
               <span className="font-semibold text-emerald-300">
-                Continuous Training:
+                Logistic Regression:
               </span>{" "}
-              Our models are constantly updated to improve accuracy and expand
-              our celebrity database.
+              Efficient classification using the reduced feature space.
             </li>
             <li>
               <span className="font-semibold text-emerald-300">
-                Privacy Focused:
+                VGGFace2 Dataset:
               </span>{" "}
-              We prioritize user privacy. Photos are processed securely and
-              never stored long-term without explicit consent.
+              Trained on a subset of 10 identities with up to 200 images per
+              person.
             </li>
           </ul>
         </section>
@@ -124,38 +121,38 @@ const AboutUs = () => {
         {/* Values/Ethics Section */}
         <section className="mb-16 text-center">
           <Scale className="h-16 w-16 text-emerald-300 mx-auto mb-4" />
-          <h2 className="text-3xl font-semibold mb-4">Our Values</h2>
+          <h2 className="text-3xl font-semibold mb-4">Key Features</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-emerald-800/50 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-2 text-emerald-200">
-                Fun & Entertainment
+                Efficiency
               </h3>
               <p className="text-emerald-100">
-                We aim to provide a lighthearted and enjoyable experience.
+                Reduced computational complexity through dimensionality
+                reduction.
               </p>
             </div>
             <div className="bg-emerald-800/50 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-2 text-emerald-200">
-                Accuracy & Improvement
+                Accuracy
               </h3>
               <p className="text-emerald-100">
-                Striving for the best possible matches through continuous
-                learning.
+                92.4% classification accuracy with optimized feature space.
               </p>
             </div>
             <div className="bg-emerald-800/50 p-6 rounded-xl">
               <h3 className="text-xl font-bold mb-2 text-emerald-200">
-                Privacy & Security
+                Scalability
               </h3>
               <p className="text-emerald-100">
-                Your data's safety is paramount in our processes.
+                Efficient processing of high-dimensional image data.
               </p>
             </div>
           </div>
         </section>
 
         {/* Team Spotlight Section - Reduced gap */}
-        <section className="py-12">
+        {/*<section className="py-12">
           <h2 className="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-emerald-400 to-lime-400 text-transparent bg-clip-text">
             Team Spotlight
           </h2>
@@ -198,7 +195,7 @@ const AboutUs = () => {
               </div>
             ))}
           </div>
-        </section>
+        </section>*/}
       </div>
     </div>
   );
